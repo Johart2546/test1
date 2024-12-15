@@ -1,0 +1,982 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@400;700&display=swap');
+
+.positionNav{
+    position: fixed;
+    width: 100%;
+    height: auto;
+    z-index: 1000;
+}
+
+.NavComponent {
+    width: 100%;
+    height: 70px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavComponent span {
+    flex: 1;
+    color: #6D6D6D; 
+}
+
+.SubNab1 {
+    text-align: left;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+
+    font-size: 20px;
+    font-family: 'Dongle', sans-serif;
+}
+.Loclation{
+    animation-duration: 3s;
+    animation-name: SubNab1;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes SubNab1{
+    0%{
+        transform: translateY(0);
+    }25%{
+        transform: translateY(-2px);
+    }75%{
+        transform: translateY(2px);
+    }100%{
+        transform: translateY(0);
+    }
+}
+.Clock {
+    animation-duration: 3s;
+    animation-name: Clock;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes Clock{
+    0%{
+        rotate: -360deg;
+    }100%{
+        rotate: 0;
+    }
+}
+
+.SubNab1 p {
+    margin: 0;
+    color: #6D6D6D;
+    line-height: 0.7;
+}
+
+.vertical-divider {
+    width: 1px;
+    height: 45px; /* ปรับความสูงตามต้องการ */
+    background-color: #6D6D6D; /* สีของเส้นแบ่ง */
+}
+
+
+.SubNab2 {
+    text-align: center;
+}
+
+.SubNab3 {
+    padding-right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+
+    font-size: 24px;
+    font-family: 'Dongle', sans-serif;
+}
+
+.welcome{
+    text-align: right;
+}
+.profileButton{
+    box-shadow: 0 4px 5px #6D6D6D;
+}
+.box{
+    width: 25px;
+    height: 25px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.NavComponentMenu {
+    width: 100%;
+    height: 40px;
+
+    backdrop-filter: blur(60px);
+    box-shadow: 0 6px 4px #00000005;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavComponentMenu a {
+    text-decoration: none;
+    color: #000;
+}
+
+.NavComponentMenu span{
+    margin: 0 20px 0;
+    font-size: 24px;
+    font-family: 'Dongle', sans-serif;
+}
+
+.MenuHover {
+    transition: 0.4s ease-in-out;
+}
+.MenuHover.active {
+    color: #C9AF62;
+}
+
+.MenuHover:hover {
+    color: #E8D196;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.dropboxMenu {
+    position: absolute;
+    right: 40px;
+    top: 70px;
+    /* transform: translateY(90px); */
+    width: 185px;
+    height: auto;
+    background-color: #1B1B1B;
+    border-radius: 10px 0 10px 10px;
+    text-align: left;
+    box-shadow: 0 4px 4px #6b6b6b;
+    z-index: 1002;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+}
+.dropboxMenu.fade-in {
+    animation: dropboxMenu 0.3s ease-in-out forwards;
+    visibility: visible;
+}
+.dropboxMenu.fade-out {
+    animation: dropboxMenuOut 0.3s ease-in-out reverse forwards;
+    visibility: hidden;
+}
+
+@keyframes dropboxMenu{
+    0%{
+        transform: translateX(100px);
+        scale: 0;
+    }50%{
+        transform: translateX(0px);
+        scale: 1;
+    }100%{
+
+    }
+}
+@keyframes dropboxMenuOut{
+    0%{
+        transform: translateX(1000px);
+        scale: 0;
+    }50%{
+        transform: translateX(0px);
+        scale: 1;
+    }100%{
+
+    }
+}
+.dropboxMenu a {
+    text-decoration: none;
+}
+
+.dropboxMenu p{
+    margin-left: 20px;
+    color: #ffffff;
+    line-height: 0.2;
+    font-size: 24px;
+    cursor: pointer;
+}
+.dropboxMenuP:hover {
+    color: #E8D196;
+}
+.lineMenu {
+    margin-left: 10px;
+    width: 160px;
+    background-color: #ffffff;
+    height: 1px;
+}
+
+
+/*============================================================= intro ============================================================*/
+.introMainWeb {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    /* background-color: #1d1d1d; */
+    background-color: #ffffff;
+    z-index: 2000;
+}
+
+.introMainWeb img{
+    width: 1000px;
+    opacity: 0;
+    visibility: hidden;
+
+    animation-duration: 2.5s;
+    animation-name: introMainWeb1;
+    animation-timing-function: ease-in-out;
+
+}
+@keyframes introMainWeb1{
+    0%{
+        visibility: visible;
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+    }
+}
+.introMainWeb h1{
+    font-size: 90px;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-350%);
+    color: #C9AF62;
+    text-shadow: 0 0 10px #C9AF62;
+    visibility: hidden;
+    opacity: 0;
+
+    animation-delay: 3s;
+    animation-duration: 3s;
+    animation-name: introMainWeb2;
+    animation-timing-function: ease-in-out;
+}
+@keyframes introMainWeb2{
+    0%{
+        visibility: visible;
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+    }
+}
+.introMainWeb h2{
+    font-size: 90px;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-510%);
+    color: #C9AF62;
+    text-shadow: 0 0 10px #C9AF62;
+    visibility: hidden;
+    opacity: 0;
+
+    animation-delay: 6.5s;
+    animation-duration: 3s;
+    animation-name: introMainWeb3;
+    animation-timing-function: ease-in-out;
+}
+@keyframes introMainWeb3{
+    0%{
+        visibility: visible;
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+    }
+}
+
+.introMainWeb p{
+    position: fixed;
+    top: 90%;  
+    left: 50%;  
+    transform: translate(-50%, -50%);
+    color: #000;
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    visibility: hidden;
+
+    animation-duration: 2s;
+    animation-name: introMainWeb4;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+@keyframes introMainWeb4{
+    0%{
+        visibility: visible;
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }100%{
+        opacity: 0;
+    }
+}
+
+/*========================================================= profile ============================================*/
+.back {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #00000016;
+    z-index: 1001;
+    backdrop-filter: blur(2px);
+    animation: back 1s ease-in-out ;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.back.fade-in{
+    opacity: 1;
+    visibility: visible;
+}
+.back.fade-out{
+    opacity: 0;
+    visibility: hidden;
+}
+@keyframes back{0%{opacity: 0;}}
+
+
+.ProfileContaner{
+    position: fixed;
+    text-align: center;
+    top: 10%;
+    right: 20px;
+    width: 500px;
+    height: 700px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px #00000063;
+    z-index: 1010;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.ProfileContaner.fade-in{
+    animation: ProfileContaner 0.5s ease-in-out forwards;
+    visibility: visible;
+}
+
+.ProfileContaner.fade-out{
+    animation: ProfileContanerOut 0.5s ease-in-out  reverse forwards;
+    visibility: hidden;
+}
+@keyframes ProfileContaner{
+    0%{
+        top: 10%;
+        right: -500px;
+    }80%{
+        top: 10%;
+        right: 50px;
+    }100%{
+        top: 10%;
+        right: 20px;
+    }
+}
+@keyframes ProfileContanerOut{
+    0%{
+        top: 10%;
+        right: -500px;
+    }80%{
+        top: 10%;
+        right: 50px;
+    }100%{
+        top: 10%;
+        right: 20px;
+    }
+}
+
+
+
+
+
+.ProfileContaner div:nth-child(1) img{
+    width: 100%;
+    height: 250px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 5px 10px #00000067;
+}
+.ProfileContaner div:nth-child(2) img{
+    width: 250px;
+    height: 250px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background-color: #eeeeee;
+    border: 5px solid #ffffff;
+    box-shadow: 0 0 10px #00000067;
+    animation: ProfileContaner2 5s ease-in-out infinite ;
+}
+@keyframes ProfileContaner2{
+    0%{
+        transform: translateY(-50%);
+    }50%{
+        transform: translateY(-48%);
+    }100%{
+        transform: translateY(-50%);
+    }
+}
+.ProfileContaner div:nth-child(3){
+    text-align: center;
+    background-color: #ffe8af;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 330px;
+    right: 120px;
+    box-shadow: 0 5px 10px #00000067;
+    text-shadow: 0 5px 10px #00000067;
+    animation: ProfileContaner3 3s ease-in-out infinite ;
+}
+@keyframes ProfileContaner3{
+    0%{
+        
+    }25%{
+        rotate: 10deg;
+    }75%{
+        rotate: -10deg;
+    }100%{
+        
+    }
+}
+.ProfileContaner div:nth-child(4){
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-130%);
+    text-shadow: 0 5px 5px #0000004b;
+    color: #543F00;
+}
+.ProfileContaner div:nth-child(5){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-420%);
+    color: #543F00;
+}
+.ProfileContaner div:nth-child(6){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-420%);
+    color: #543F00;
+}
+.ProfileContaner div:nth-child(7){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-420%);
+    color: #543F00;
+}
+.ProfileContaner div:nth-child(8){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #543f006b;
+    cursor: pointer;
+    animation: ProfileContaner8 3s ease-in-out infinite ;
+}
+@keyframes ProfileContaner8{
+    0%{
+        
+    }40%{
+        right: 10px;
+    }50%{
+        right: 15px;
+    }60%{
+        right: 10px;
+    }100%{
+        
+    }
+}
+.ProfileContaner div:nth-child(9){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-shadow: 0 0 10px #0000008b;
+    cursor: pointer;
+    animation: ProfileContaner9 3s ease-in-out infinite ;
+}
+@keyframes ProfileContaner9{
+    0%{
+        
+    }25%{
+        rotate: 10deg;
+    }75%{
+        rotate: -10deg;
+    }100%{
+        
+    }
+}
+.ProfileContaner div:nth-child(10){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+    padding-left: 5px;
+    background-color: #f7e19b;
+    text-align: center;
+    color: #322300;
+    box-shadow: 0 0 10px #ffdb64;
+    cursor: pointer;
+}
+.ProfileContaner div:nth-child(11){
+    font-size: 16px;
+    font-family: 'Dongle', sans-serif;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #ffffff;
+    border-radius: 0 0 15px 15px;
+    background-color: #251500;
+    text-align: center;
+    cursor: pointer;
+}
+.ProfileContaner div:nth-child(12){
+    font-size: 30px;
+    font-family: 'Dongle', sans-serif;
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
+    padding-left: 5px;
+    background-color: #f7e19b;
+    text-align: center;
+    color: #322300;
+    box-shadow: 0 0 10px #ffdb64;
+    cursor: pointer;
+}
+/*==================================================card=============================================*/
+.CardMember{
+    position: fixed;
+    z-index: 1010;
+}
+.Platinum img{
+    width: 400px;
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    filter: drop-shadow(0 0 10px #889699);
+    transition: opacity 0.3s ease, visibility 1s ease;
+    visibility: hidden;
+}
+.Platinum.fade-in img{
+    animation: CardMember 3s ease-in-out forwards;
+    visibility: visible;
+}
+.Platinum.fade-out img{
+    animation: CardMemberOut 0.2s ease-in-out reverse forwards;
+    visibility: hidden;
+}
+.Gold img{
+    width: 400px;
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    filter: drop-shadow(0 0 10px #ffe75e);
+    transition: opacity 0.3s ease, visibility 1s ease;
+    visibility: hidden;
+}
+.Gold.fade-in img{
+    animation: CardMember 3s ease-in-out forwards;
+    visibility: visible;
+}
+.Gold.fade-out img{
+    animation: CardMemberOut 0.2s ease-in-out reverse forwards;
+    visibility: hidden;
+}
+.Dimond img{
+    width: 400px;
+    position: fixed;
+    bottom: 60px;
+    left: 20px;
+    filter: drop-shadow(0 0 10px #0B3D6E);
+    transition: opacity 0.3s ease, visibility 1s ease;
+    visibility: hidden;
+}
+.Dimond.fade-in img{
+    animation: CardMember 3s ease-in-out forwards;
+    visibility: visible;
+}
+.Dimond.fade-out img{
+    animation: CardMemberOut 0.2s ease-in-out reverse forwards;
+    visibility: hidden;
+}
+@keyframes CardMember{
+    0%{
+        bottom: 60px;
+        left: -500px;
+    }80%{
+        bottom: 60px;
+        left: 20px;
+    }100%{
+        bottom: 60px;
+        left: 20px;
+    }
+}
+@keyframes CardMemberOut{
+    0%{
+        bottom: 60px;
+        left: -500px;
+    }80%{
+        bottom: 60px;
+        left: 20px;
+    }100%{
+        bottom: 60px;
+        left: 20px;
+    }
+}
+/*==============================================================CreateStore======================================================*/
+.CreateStore{
+    z-index: 1015;
+    position: fixed;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.CreateStore.fade-in{
+    opacity: 1;
+    visibility: visible;
+}
+.CreateStore.fade-out{
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.Exit {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: brown;
+    box-shadow: 0 4px 4px #00000049;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.BookinfoPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 600px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Dongle', sans-serif;
+    box-shadow: 0 0 10px #00000049;
+
+    animation-duration: 0.8s;
+    animation-name: BookinfoPopup;
+    animation-timing-function: ease-in-out;
+}
+@keyframes BookinfoPopup{
+    0%{
+        opacity: 0;
+    }100%{
+        
+    }
+}
+
+.BookinfoPopup h2{
+    color: #C9AF62;
+    font-size: 54px;
+    text-align: center;line-height: 10px;
+}
+.insideinfopopup {
+    display: flex;
+    justify-content: space-between;
+    flex: 2;
+    font-size: 36px;
+    line-height: 20px;
+}
+
+.left-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+}
+
+.submitbtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right-section {
+    width: 45%;
+}
+
+textarea {
+    margin-top: 20px;
+    width: 100%;
+    height: 200px;
+    resize: none;
+}
+.BookinfoPopup button{
+    background-color: #C9AF62;
+    color: #ffffff;
+    border: 0;
+    width: 300px;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.bottonn{
+    font-size: 20px;
+    padding: 0 40px;
+}
+
+/*=======================================================UserStoreSelect==============================================*/
+.UserStoreSelect{
+    position: fixed;
+    top: 10px;
+    left: 0px;
+    width: 920px;
+    height: 500px;
+    background-color: #F5F5F7;
+    z-index: 1015;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 0 10px #00000077;
+    animation: UserStoreSelect 0.8s ease;
+}
+@keyframes UserStoreSelect {
+    0%{
+        left: -920px;
+    }
+}
+.UserStoreSelect h1:nth-child(1){
+    margin-left: 40px;
+    font-size: 66px;
+    color: #6E6E73;
+    font-family: 'Dongle', sans-serif;
+    transform: translateY(-40%);
+}
+.cardStoreUser{
+    transform: translateY(-20%);
+    margin: 10px;
+    width: 880px;
+    height: 350px;
+    background-color: #F5F5F7;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+.CardInfoUser{
+    border-radius: 10px;
+    background-color: #ffffff;
+    height: 300px;
+    box-shadow: 0 0 30px #00000016;
+    transition: 0.5s;
+}
+.CardInfoUser:hover{
+    box-shadow: 0 0 30px #0000003d;
+}
+.CardInfoUser:hover .bin{
+    visibility: visible;
+    animation: bin 1s ease-in-out ;
+}
+.CardInfoUser img{
+    border-radius: 10px 10px 0 0;
+    width: 213px;
+    height: 130px;
+}
+.N {
+    width: auto;
+    margin: 10px;
+    font-size: 26px;
+}
+.E {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: brown;
+    box-shadow: 0 4px 4px #00000049;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.D{
+    padding: 0px 15px;
+    font-size: 12px;
+    overflow-y: scroll;
+    height: 80px;
+    color: #6E6E73;
+}
+.bin{
+    position: relative;
+    right: -80px;
+    top: 5px;
+    visibility: hidden;
+    text-align: center;
+    cursor: pointer;
+    
+}
+@keyframes bin{
+    0%{ rotate: 0deg; opacity: 0;}20%{opacity: 1; rotate: 30deg; }40%{ rotate: -30deg; }60%{  rotate: 30deg; }80%{ rotate: -30deg; }
+}
+
+
+/*=============================================================Edit profile=============================*/
+.EditProfileContaner{
+    position: fixed;
+    text-align: left;
+    top: 10%;
+    right: 20px;
+    width: 500px;
+    height: 700px;
+    backdrop-filter: blur(45px);
+    border-radius: 15px;
+    z-index: 1010;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.EditProfileContaner input{
+    border-radius: 20px;
+    padding: 5px;
+    border: 2px solid #432c01;
+
+}
+
+.EditProfileContaner.fade-in{
+    animation: EditProfileContaner 0.3s ease-in-out forwards;
+    visibility: visible;
+}
+
+.EditProfileContaner.fade-out{
+    animation: EditProfileContanerOut 0.3s ease-in-out  reverse forwards;
+    visibility: hidden;
+}
+@keyframes EditProfileContaner{
+    0%{
+        opacity: 0;
+        scale: 0.3;
+    }
+}
+@keyframes EditProfileContanerOut{
+    0%{
+        opacity: 0;
+        scale: 0.3;
+    }
+}
+.EditContaner{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 450px;
+    height: 650px;
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(45px);
+    background-color: #ffffffb7;
+}
+.EditBtn {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    text-shadow: 3px 5px 2px #969696;
+}
+.uploadEdit {
+    display: flex;
+    justify-content: space-between;
+}
+.Editsubmit{
+    margin: 40px 100px;
+    border: 2px solid #432c01;
+    border-radius: 20px;
+    padding: 0px;
+    background-color: #E8D196;
+    font-family: 'Dongle', sans-serif;
+    font-size: 30px;
+}
+
+/* ======================================================tax======================================================== */
+.TaxContaner{
+    position: fixed;
+    text-align: left;
+    top: 10%;
+    right: 20px;
+    width: 500px;
+    height: 700px;
+    backdrop-filter: blur(45px);
+    border-radius: 15px;
+    z-index: 1030;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.TaxContannersub{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 450px;
+    height: 650px;
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(45px);
+    background-color: #ffffffb7;
+}
+.TaxContannersub textarea{
+    width: 100%;
+    max-height: 50px;
+}
+.TaxContannersub img{
+    width: 160px;
+}
+.Taxsubmit{
+    padding: 0px 20px;
+    font-family: 'Dongle', sans-serif;
+    font-size: 20px;
+    background-color: #C9AF62;
+    border-color: #ffffff;
+}
+.TaxContaner.fade-in{
+    visibility: visible;
+    opacity: 1;
+    animation: TaxContanerin 0.2s ease-in forwards;
+}
+.TaxContaner.fade-out{
+    visibility: hidden;
+    opacity: 0;
+    animation: TaxContanerout 0.2s ease-in-out reverse forwards;
+}
+@keyframes TaxContanerin {
+    0%{
+        scale: 0.4;
+    }
+}
+@keyframes TaxContanerout {
+    0%{
+        scale: 0.4;
+    }
+}
+.closeTax{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    background-color: brown;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 5px 5px #00000048;
+}
