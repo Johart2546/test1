@@ -2,9 +2,10 @@ package books
 
 import (
 	"net/http"
+
+	"example.com/ProjectSeG08/config"
+	"example.com/ProjectSeG08/entity"
 	"github.com/gin-gonic/gin"
-	"example.com/laundry/config"
-	"example.com/laundry/entity"
 )
 
 // GetAllBooks - ดึงข้อมูลหนังสือทั้งหมด
@@ -24,27 +25,26 @@ func GetAllBooks(c *gin.Context) {
 	c.JSON(http.StatusOK, books)
 }
 
-// GetBook - ดึงข้อมูลหนังสือตาม ID
 func GetBooks(c *gin.Context) {
 	ID := c.Param("id")
-	var book entity.Books
+	var books entity.Books
 
 	db := config.DB()
 
 	// ค้นหาหนังสือตาม ID
-	results := db.First(&book, ID)
+	results := db.First(&books, ID)
 
 	if results.Error != nil {
 		c.JSON(http.StatusNotFound, gin.H{"error": results.Error.Error()})
 		return
 	}
 
-	if book.ID == 0 {
+	if books.ID == 0 {
 		c.JSON(http.StatusNoContent, gin.H{})
 		return
 	}
 
-	c.JSON(http.StatusOK, book)
+	c.JSON(http.StatusOK, books)
 }
 
 // UpdateBook - อัปเดตข้อมูลหนังสือตาม ID
@@ -81,7 +81,7 @@ func UpdateBooks(c *gin.Context) {
 }
 
 // DeleteBook - ลบข้อมูลหนังสือตาม ID
-func DeleteBook(c *gin.Context) {
+func DeleteBooks(c *gin.Context) {
 	id := c.Param("id")
 	db := config.DB()
 
@@ -93,4 +93,45 @@ func DeleteBook(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"message": "Deleted successful"})
 }
-//ตุ๋ยตูดffffff
+
+func CreateBooks(c *gin.Context) {
+	var book entity.Books
+
+	// Bind JSON to book struct
+	if err := c.ShouldBindJSON(&book); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Save book to database
+	db := config.DB()
+	if err := db.Create(&book).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Return the created book
+	c.JSON(http.StatusOK, book)
+}
+
+func GetLastBooks(c *gin.Context) {
+    var book entity.Books
+
+    db := config.DB()
+
+    // ค้นหาหนังสือที่มี ID ล่าสุด (เรียงลำดับ DESC และจำกัดแค่ 1 รายการ)
+    results := db.Order("ID DESC").First(&book)
+
+    if results.Error != nil {
+        c.JSON(http.StatusNotFound, gin.H{"error": results.Error.Error()})
+        return
+    }
+
+    if book.ID == 0 {
+        c.JSON(http.StatusNoContent, gin.H{})
+        return
+    }
+
+    // ส่งข้อมูลหนังสือล่าสุดกลับไป
+    c.JSON(http.StatusOK, book)
+}
